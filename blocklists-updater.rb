@@ -41,6 +41,7 @@ def update_list name, uri
 
   unzip(blocklist_gz, name)
   File.delete(blocklist_gz)
+  puts "> #{name} done "
 end
 
 def unzip gz_file, name
@@ -57,6 +58,15 @@ puts "Updating #{blocklists.count} blocklists.. \n\n"
 blocklists.each do |name, uri|
   update_list(name, uri)
   sleep 1.5
+unless blocklists.empty?
+  puts "Updating #{blocklists.count} blocklists.. \n\n"
+  blocklists.each do |name, uri|
+    update_list(name, uri)
+    sleep 1
+  end
+  puts "\n\nIt's all done!"
+else
+  puts "There's no blocklist to update!"
 end
 
 puts "\n\nIt's all done!"
