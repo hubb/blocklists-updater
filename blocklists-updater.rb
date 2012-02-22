@@ -8,10 +8,8 @@ require 'open-uri'
 require 'progressbar'
 
 # Path to Transmission blocklists folder
-BLOCKLISTS_PATH = "/Users/hubb/Library/Application Support/Transmission/blocklists"
 BLOCKLISTS_PATH = Dir.home + "/Library/Application Support/Transmission/blocklists"
 
-# Blocklists we want to keep updated with thei uris
 # Blocklists we want to keep updated with their uris
 blocklists = {
   "level1"          => "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",
@@ -53,11 +51,6 @@ def unzip gz_file, name
   end
 end
 
-puts "Updating #{blocklists.count} blocklists.. \n\n"
-
-blocklists.each do |name, uri|
-  update_list(name, uri)
-  sleep 1.5
 unless blocklists.empty?
   puts "Updating #{blocklists.count} blocklists.. \n\n"
   blocklists.each do |name, uri|
@@ -68,5 +61,3 @@ unless blocklists.empty?
 else
   puts "There's no blocklist to update!"
 end
-
-puts "\n\nIt's all done!"
