@@ -5,6 +5,7 @@ require 'progressbar'
 
 # Path to Transmission blocklists folder
 BLOCKLISTS_PATH = "/Users/hubb/Library/Application Support/Transmission/blocklists"
+BLOCKLISTS_PATH = Dir.home + "/Library/Application Support/Transmission/blocklists"
 
 # Blocklists we want to keep updated with thei uris
 blocklists = {
