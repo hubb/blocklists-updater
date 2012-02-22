@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+## Blocklists updater for Transmission Mac
+## Using blocklists from http://www.iblocklist.com/list.php
+## Thibault Gautriaud - 2012
+
 require 'open-uri'
 require 'progressbar'
 
@@ -8,6 +12,7 @@ BLOCKLISTS_PATH = "/Users/hubb/Library/Application Support/Transmission/blocklis
 BLOCKLISTS_PATH = Dir.home + "/Library/Application Support/Transmission/blocklists"
 
 # Blocklists we want to keep updated with thei uris
+# Blocklists we want to keep updated with their uris
 blocklists = {
   "level1"          => "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",
   "level2"          => "http://list.iblocklist.com/?list=bt_level2&fileformat=p2p&archiveformat=gz",
